@@ -1,38 +1,45 @@
 <template>
-  <q-page padding class="row justify-center">
-    <q-list dense class="list">
-      <div class="text-h4 q-mb-md">Test pages</div>
-      <q-item
-        v-for="page in pages"
-        :key="page.path"
-        :to="page.path"
-      >
-        <q-item-section avatar>
-          <q-icon name="pages" />
-        </q-item-section>
-        <q-item-section>
-          {{ page.title }}
-        </q-item-section>
-        <q-item-section side>
-          <q-icon name="chevron_right" />
-        </q-item-section>
-      </q-item>
-    </q-list>
+  <q-page class="flex flex-center">
+    <custom-navigation></custom-navigation>
+    <custom-icon-set></custom-icon-set>
+    <filter2></filter2>
+    <pagination></pagination>
+    <using-icon-slot></using-icon-slot>
+    <using-q-input></using-q-input>
+    <tooltips></tooltips>
+    <size></size>
+    <selected-color></selected-color>
+    <pagination-color></pagination-color>
+    <color></color>
   </q-page>
 </template>
 
 <script>
-import pages from '../router/pages'
+import { defineComponent } from 'vue';
+import CustomNavigation from "components/CustomNavigation";
+import CustomIconSet from "components/CustomIconSet";
+import Filter2 from "components/Filter2";
+import Pagination from "components/Pagination";
+import UsingIconSlot from "components/UsingIconSlot";
+import UsingQInput from "components/UsingQInput";
+import Tooltips from "components/Tooltips";
+import Size from "components/Size";
+import SelectedColor from "components/SelectedColor";
+import PaginationColor from "components/PaginationColor";
 
-export default {
-  created () {
-    this.pages = pages
+export default defineComponent({
+  name: 'PageIndex',
+  components: {
+    CustomNavigation,
+    CustomIconSet,
+    Filter2,
+    Pagination,
+    UsingIconSlot,
+    UsingQInput,
+    Tooltips,
+    Size,
+    SelectedColor,
+    PaginationColor
   }
-}
+})
 </script>
-
-<style lang="sass" scoped>
-.list
-  width: 700px
-  max-width: 100%
-</style>

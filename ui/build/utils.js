@@ -64,6 +64,8 @@ module.exports.validateTags = function (tags) {
   })
 }
 
+
+
 process.on('exit', code => {
   if (code === 0 && tableData.length > 0) {
     const { table } = require('table')
